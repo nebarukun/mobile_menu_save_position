@@ -1,0 +1,135 @@
+#header {
+
+	nav#mainNav {
+		text-align: center;
+		display: inline-block;
+		left: -100%;
+		bottom: 0;
+		top: 0;
+		background: @special-color;
+		position: absolute;
+		transition: left .5s ease;
+
+		body.nav-open & {
+			left: 0;
+		}
+
+		@media screen and (min-width: @breakpoint-mobile) {
+			position: static;
+			left: 0;
+			display: block;
+			background: transparent;
+
+			body.nav-open & {
+				position: static;
+				left: 0;
+				display: block;
+				background: transparent;
+			}
+		}
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			@media screen and (min-width: @breakpoint-mobile) {
+				margin: 0 auto;
+			}
+
+			li {
+				min-width: 160px;
+				list-style: none;
+
+				@media screen and (min-width: @breakpoint-mobile) {
+					display: inline-block;
+					margin-right: 3px;
+					min-width: 100px;
+
+					&:last-child {
+						margin: 0;
+					}
+				}
+
+				@media screen and (min-width: @breakpoint-desktop) {
+					min-width: 140px;
+				}
+			}
+		}
+	}
+
+
+
+
+	@mobile-nav-breakpoint: (800em / 16);
+	@transition-duration:0.8s;
+	#mobile-btn{
+		background: transparent;
+		border: none;
+		width: 35px;
+		height: 35px;
+		position:fixed;
+		z-index: 999;
+		right: 16px;
+		top: 5px;
+		padding: 0;
+
+		@media (min-width: @breakpoint-mobile) {
+			display: none;
+		}
+
+
+		& span {
+			position: absolute;
+			height: 4px;
+			width: 100%;
+			background: @special-color;
+			transition: opacity 0.4s ease;
+			top: 50%;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			transform-origin: 50%;
+
+			:focus&, :hover& {
+				background: @special-color;
+			}
+
+			body.nav-open &{
+				opacity: 0;
+				background-color: @special-color;
+			}
+
+			&:first-child {
+				top: 25%;
+				transition:top 0.4s ease 0.4s, transform 0.4s ease;
+
+				body.nav-open &{
+					opacity: 1;
+					transition:top 0.4s ease, transform 0.4s ease 0.4s;
+					top: 50%;
+					transform: rotate(-45deg);
+				}
+			}
+
+			&:last-child {
+				top: 76%;
+				transition:top 0.4s ease 0.4s, transform 0.4s ease;
+
+				body.nav-open &{
+					opacity: 1;
+					transition:top 0.4s ease, transform 0.4s ease 0.4s;
+					top: 50%;
+					transform: rotate(45deg);
+				}
+			}
+		}
+
+
+		@media screen and (min-width: @breakpoint-mobile) {
+			span{
+				display:none;
+			}
+		}
+	}
+}

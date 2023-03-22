@@ -1,0 +1,49 @@
+html,body{
+	margin:0;
+	padding:0;
+	font-size:@font-size-main;
+	color: @color-fg;
+	width:100%;
+	height:100%;
+}
+
+body {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	font-size: @font-size-main;
+	font-family: @font-family;
+	font-weight: normal;
+
+	&.nav-open {
+		position: fixed;
+	}
+}
+
+
+::-moz-selection {
+	color: @color-bg;
+	background: @color-fg;
+}
+
+::selection {
+	color: @color-bg;
+	background: @color-fg;
+}
+
+
+a{
+	color: #ffffff;
+	background: #4DB6AC;
+	padding: 10px;
+	display: block;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+
+#wrap {
+	height: 200%;
+	height: 200vh;
+	position: relative;
+}
